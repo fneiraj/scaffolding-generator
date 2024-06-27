@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: docker login
       run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD  
+        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
